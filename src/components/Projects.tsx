@@ -5,44 +5,125 @@ import { useInView } from "react-intersection-observer";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import { HiOutlineFolder } from "react-icons/hi";
 
-const projects = [
+type Project = {
+    title: string;
+    description: string;
+    tech: string[];
+    featured: boolean;
+    highlights?: string[];
+    github?: string;
+    live?: string;
+};
+
+const projects: Project[] = [
+    {
+        title: "PerceptionGuard",
+        description:
+            "CI-gated regression testing for perception models. Scenario-aware evaluation on BDD100K correlates YOLOv8 accuracy with weather, lighting and road scenes, flags safety-relevant coverage gaps, and blocks deployment when category-level mAP drops below baseline.",
+        tech: ["Python", "YOLOv8", "ONNX", "OpenVINO", "BDD100K", "GitHub Actions", "Docker", "SQLite", "Streamlit"],
+        featured: true,
+        highlights: [
+            "Per-scenario mAP instead of a single aggregate score",
+            "Dataset coverage analysis surfaces underrepresented scenarios",
+            "GitHub Actions gate blocks merges on accuracy regressions",
+        ],
+        github: "https://github.com/Kunj157/PerceptionGuard",
+    },
+    {
+        title: "FinBrain",
+        description:
+            "AI-powered personal finance dashboard with bank and statement import (including German bank PDFs), ML transaction categorisation, budgets, goals, forecasting and an LLM financial advisor.",
+        tech: ["Python", "FastAPI", "XLM-RoBERTa", "Scikit-learn", "PostgreSQL", "React", "TypeScript", "Three.js"],
+        featured: true,
+        highlights: [
+            "Fine-tuned XLM-RoBERTa: 86.5% test accuracy across 10 categories",
+            "Keyword fallback keeps categorisation reliable without the model",
+            "Cash-flow forecasting with Prophet, ARIMA and linear regression",
+        ],
+        github: "https://github.com/Kunj157/FinBrain",
+        live: "https://kunj157.github.io/FinBrain/",
+    },
+    {
+        title: "Wyrdline",
+        description:
+            "Causal flight recorder and rewind engine for AI coding agents. Runs an agent in a sandboxed cell, records what it intended (hooks, MCP, OpenTelemetry) and what it actually did (eBPF), checkpoints every tool call, and lets you rewind, fork and replay sessions.",
+        tech: ["Rust", "eBPF", "WebAssembly", "TypeScript", "PostgreSQL", "Docker"],
+        featured: true,
+        highlights: [
+            "Correlates every kernel effect with the tool call that caused it",
+            "Flags intent–effect divergence, e.g. \"tests pass\" with no test run",
+            "Signed .wyrd bundles replay offline in the browser via Wasm",
+        ],
+        github: "https://github.com/Kunj157/wyrdline",
+        live: "https://kunj157.github.io/wyrdline/",
+    },
+    {
+        title: "OpsPilot",
+        description:
+            "AI-assisted SRE platform that detects incidents, investigates them with LangGraph agents and ML, proposes evidence-backed remediation, runs it only after human approval, verifies recovery and writes the postmortem.",
+        tech: ["Python", "LangGraph", "TypeScript", "Kubernetes", "Terraform", "Keycloak"],
+        featured: true,
+        highlights: [
+            "Full incident loop on a Kubernetes demo shop",
+            "Human-approved, allow-listed rollbacks with audit log",
+            "Evaluations dashboard: detection delay, MTTA, MTTR, agent cost",
+        ],
+        github: "https://github.com/Kunj157/opspilot",
+        live: "https://kunj157.github.io/opspilot/",
+    },
+    {
+        title: "ForgeSight",
+        description:
+            "Qt/C++ desktop platform for real-time industrial device monitoring: live dashboards, a 3D plant floor, alarm rules and historical analytics over MQTT-fed sensor data.",
+        tech: ["C++20", "Qt 6", "QML", "MQTT", "PostgreSQL", "SQLite", "CMake", "Docker"],
+        featured: true,
+        highlights: [
+            "Load-tested to 600 devices (~1,800 msg/s) with sub-second p95 ingestion",
+            "Offline cache queues alarm acks and flushes them on reconnect",
+            "ctest suite, AddressSanitizer CI job, AppImage releases",
+        ],
+        github: "https://github.com/Kunj157/ForgeSight",
+        live: "https://kunj157.github.io/ForgeSight/",
+    },
     {
         title: "Wanderlust",
         description:
-            "A full-featured property rental and booking platform with listings, reviews, dashboards, and multi-filter search. Implemented PassportJS authentication, MVC architecture, Cloudinary media pipeline, and Render deployment.",
+            "Property rental and booking platform with listings, reviews and multi-filter search. MVC architecture, PassportJS authentication and a Cloudinary media pipeline.",
         tech: ["Node.js", "Express", "MongoDB", "EJS", "Cloudinary"],
-        featured: true,
-        highlights: [
-            "Scalable MVC architecture with modular routing",
-            "Cloudinary media pipeline integration",
-            "PassportJS auth with session management",
-        ],
-    },
-    {
-        title: "Expert System for Video Games",
-        description:
-            "An intelligent expert system processing 165,000+ game entries with sub-0.5s decision latency. Built a fault-tolerant CSV ingestion pipeline achieving 100% parsing accuracy and 95% recommendation correctness.",
-        tech: ["Python", "Rule-Based AI"],
-        featured: true,
-        highlights: [
-            "165K+ entries with sub-500ms latency",
-            "95% recommendation correctness",
-            "Fault-tolerant data pipeline",
-        ],
-    },
-    {
-        title: "Real Estate UI Platform",
-        description:
-            "A modern real estate listing and browsing platform with an intuitive UI for property discovery.",
-        tech: ["React", "Node.js"],
         featured: false,
+        github: "https://github.com/Kunj157/Wanderlust",
+    },
+    {
+        title: "Play-Smart: Video Game Expert System",
+        description:
+            "Rule-based expert system that recommends video games from a dataset of 16,000+ titles, with a GUI for filtering by platform, genre and more.",
+        tech: ["Python", "Rule-Based AI"],
+        featured: false,
+        github: "https://github.com/Kunj157/rule-based-game-recommendation",
+    },
+    {
+        title: "Travel Accommodation UI",
+        description:
+            "React web app for finding and booking unique accommodations, with search by name or location and category filtering.",
+        tech: ["React", "TypeScript"],
+        featured: false,
+        github: "https://github.com/Kunj157/travel-vibe-website",
     },
     {
         title: "Library Management System",
         description:
-            "A robust library management system built with test-driven development principles.",
-        tech: ["Java", "TDD"],
+            "Library management kata solved with test-driven development, built through small incremental commits.",
+        tech: ["TDD"],
         featured: false,
+        github: "https://github.com/Kunj157/Library-Management-System",
+    },
+    {
+        title: "Weather App",
+        description:
+            "Responsive weather app with automatic location detection and city search, powered by the OpenWeatherMap API.",
+        tech: ["JavaScript", "OpenWeatherMap API"],
+        featured: false,
+        github: "https://github.com/Kunj157/Weather-App",
     },
     {
         title: "Kafka JSON Streaming Tool",
@@ -101,18 +182,28 @@ export default function Projects() {
                                         </div>
                                     </div>
                                     <div className="flex gap-3 opacity-60 group-hover:opacity-100 transition-opacity">
-                                        <button
-                                            aria-label="GitHub"
-                                            className="w-9 h-9 rounded-lg flex items-center justify-center border border-[var(--border)] hover:border-[var(--accent)] hover:text-accent transition-all"
-                                        >
-                                            <FaGithub size={16} />
-                                        </button>
-                                        <button
-                                            aria-label="External Link"
-                                            className="w-9 h-9 rounded-lg flex items-center justify-center border border-[var(--border)] hover:border-[var(--accent)] hover:text-accent transition-all"
-                                        >
-                                            <FaExternalLinkAlt size={14} />
-                                        </button>
+                                        {project.github && (
+                                            <a
+                                                href={project.github}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                aria-label={`${project.title} on GitHub`}
+                                                className="w-9 h-9 rounded-lg flex items-center justify-center border border-[var(--border)] hover:border-[var(--accent)] hover:text-accent transition-all"
+                                            >
+                                                <FaGithub size={16} />
+                                            </a>
+                                        )}
+                                        {project.live && (
+                                            <a
+                                                href={project.live}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                aria-label={`${project.title} live site`}
+                                                className="w-9 h-9 rounded-lg flex items-center justify-center border border-[var(--border)] hover:border-[var(--accent)] hover:text-accent transition-all"
+                                            >
+                                                <FaExternalLinkAlt size={14} />
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
 
@@ -167,12 +258,17 @@ export default function Projects() {
                             >
                                 <div className="flex items-center justify-between mb-4">
                                     <HiOutlineFolder size={28} className="text-accent" />
-                                    <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <FaGithub
-                                            size={16}
-                                            className="text-text-muted hover:text-accent transition-colors cursor-pointer"
-                                        />
-                                    </div>
+                                    {project.github && (
+                                        <a
+                                            href={project.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label={`${project.title} on GitHub`}
+                                            className="text-text-muted hover:text-accent transition-colors"
+                                        >
+                                            <FaGithub size={16} />
+                                        </a>
+                                    )}
                                 </div>
                                 <h4 className="text-lg font-bold text-foreground mb-2">
                                     {project.title}

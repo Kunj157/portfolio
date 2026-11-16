@@ -14,7 +14,7 @@ export default function Footer() {
                             <span className="text-foreground"> Patel</span>
                         </a>
                         <p className="text-text-muted text-sm mt-1">
-                            Software Engineer · Germany
+                            ML / Computer Vision · Software Engineer · Germany
                         </p>
                     </div>
 

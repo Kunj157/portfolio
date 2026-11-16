@@ -15,23 +15,25 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kunj Patel — Software Engineer",
+  title: "Kunj Patel — Software Engineer · ML / Computer Vision",
   description:
-    "Software Engineer specializing in C++, full-stack development, CI/CD pipelines, and real-time systems. Based in Germany.",
+    "Software Engineer working on machine learning, computer vision and real-time perception systems in Python and C++. MSc Computer Science student based in Germany.",
   keywords: [
     "Kunj Patel",
     "Software Engineer",
-    "Full Stack Developer",
+    "Machine Learning",
+    "Computer Vision",
+    "PyTorch",
+    "YOLO",
     "C++",
-    "React",
-    "Node.js",
+    "Python",
     "Portfolio",
   ],
   authors: [{ name: "Kunj Patel" }],
   openGraph: {
-    title: "Kunj Patel — Software Engineer",
+    title: "Kunj Patel — Software Engineer · ML / Computer Vision",
     description:
-      "Software Engineer specializing in C++, full-stack development, CI/CD pipelines, and real-time systems.",
+      "Software Engineer working on machine learning, computer vision and real-time perception systems in Python and C++.",
     type: "website",
   },
 };

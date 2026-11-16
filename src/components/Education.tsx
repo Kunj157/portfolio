@@ -7,16 +7,18 @@ import { HiAcademicCap, HiBadgeCheck } from "react-icons/hi";
 
 const education = [
     {
-        degree: "M.S. in Computer Science",
-        school: "Marburg University",
-        location: "Germany",
+        degree: "MSc Computer Science",
+        school: "Philipps University of Marburg",
+        location: "Germany · Oct 2025 — Present",
+        coursework: "Computer Vision, Deep Learning, Machine Learning, Foundation Models",
         icon: <HiAcademicCap size={24} />,
         color: "#6366f1",
     },
     {
-        degree: "B.E. in Computer Engineering",
-        school: "L.D. College of Engineering",
-        location: "India",
+        degree: "B.E. Computer Engineering",
+        school: "L.D. College of Engineering, GTU",
+        location: "India · Sep 2021 — May 2025",
+        coursework: "Data Structures & Algorithms, OOP, DBMS, Machine Learning",
         icon: <FaGraduationCap size={22} />,
         color: "#a855f7",
     },
@@ -92,9 +94,22 @@ export default function Education() {
                                     <p className="text-text-muted text-sm mt-1">
                                         {edu.location}
                                     </p>
+                                    <p className="text-text-secondary text-sm mt-2">
+                                        {edu.coursework}
+                                    </p>
                                 </div>
                             </motion.div>
                         ))}
+
+                        <motion.div
+                            initial={{ opacity: 0, x: -30 }}
+                            animate={inView ? { opacity: 1, x: 0 } : {}}
+                            transition={{ duration: 0.5, delay: 0.5 }}
+                            className="glass-card p-6"
+                        >
+                            <h4 className="text-lg font-bold text-foreground mb-2">Languages</h4>
+                            <p className="text-text-secondary text-sm">English — C1 · German — A2</p>
+                        </motion.div>
                     </div>
 
                     {/* Certifications */}

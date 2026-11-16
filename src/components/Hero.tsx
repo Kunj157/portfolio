@@ -6,10 +6,10 @@ import { HiArrowDown } from "react-icons/hi";
 import { useEffect, useState } from "react";
 
 const roles = [
+    "ML / Computer Vision Engineer",
     "Software Engineer",
     "C++ Developer",
-    "Full-Stack Developer",
-    "DevOps Enthusiast",
+    "Perception Systems Builder",
 ];
 
 export default function Hero() {
@@ -104,11 +104,11 @@ export default function Hero() {
                     transition={{ duration: 0.7, delay: 0.6 }}
                     className="text-text-secondary text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10"
                 >
-                    Building high-performance systems at the intersection of{" "}
-                    <span className="text-accent-tertiary font-medium">C++</span>,{" "}
-                    <span className="text-accent font-medium">real-time computing</span>, and{" "}
-                    <span className="text-accent-secondary font-medium">modern web technologies</span>.
-                    Currently engineering at{" "}
+                    Building reliable systems at the intersection of{" "}
+                    <span className="text-accent-tertiary font-medium">computer vision</span>,{" "}
+                    <span className="text-accent font-medium">real-time C++</span>, and{" "}
+                    <span className="text-accent-secondary font-medium">AI tooling</span>.
+                    Currently working on ML and perception at{" "}
                     <span className="text-foreground font-semibold">Sentics</span> in Germany.
                 </motion.p>
 

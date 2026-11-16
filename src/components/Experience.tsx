@@ -6,18 +6,31 @@ import { FaBriefcase } from "react-icons/fa";
 
 const experiences = [
     {
-        role: "Software Engineer",
+        role: "Working Student – ML / Computer Vision",
         company: "Sentics",
         location: "Wolfsburg, Germany",
-        period: "Oct 2024 — Present",
-        tech: ["C++", "CMake", "GitHub Actions", "Conan", "JFrog", "MQTT", "Kafka", "OpenCV"],
+        period: "Feb 2026 — Present",
+        tech: ["Python", "PyTorch", "YOLO", "ONNX", "OpenCV", "Sensor Fusion"],
         highlights: [
-            "Architected a modular CI/CD pipeline using GitHub Actions, reusable workflows, and Conan — automating build, packaging, caching, and conditional artifact publishing to JFrog Artifactory.",
-            "Engineered a networked vehicle-speed reduction module in C++ using MQTT, reducing braking response latency by 30ms under real-time constraints.",
-            "Profiled and optimized a multi-camera sensor-fusion pipeline using OpenCV, eliminating memory leaks and improving runtime stability.",
-            "Refactored the object-matching algorithm in a multi-perception system, improving matching accuracy and reducing execution overhead.",
-            "Implemented multi-tenancy via configuration-driven environment isolation, enabling multi-environment deployment without code duplication.",
-            "Reduced overall C++ codebase size by 5% through targeted refactoring and modularization.",
+            "Fine-tuned computer vision models with PyTorch and YOLO, improving mAP50-95 from 0.611 to 0.698 across 1,677 images from five previously unseen cameras.",
+            "Built an automated ML pipeline covering data collection, auto-labelling, dataset preparation, splitting, training and evaluation for reproducible experiments.",
+            "Implemented Python simulation and replay tools to evaluate perception and sensor-fusion changes on recorded multi-camera and IMU data, including synthetic scenarios with realistic timing variations.",
+            "Validated deployment consistency by comparing PyTorch and ONNX inference outputs across 40 test images.",
+            "Investigated perception failures in customer-deployed systems from camera recordings, sensor data and tracking behaviour, documenting root causes for the engineering team.",
+        ],
+    },
+    {
+        role: "Software Engineer (Freelance, Full-Time)",
+        company: "Sentics",
+        location: "Remote (India)",
+        period: "Oct 2024 — Sep 2025",
+        tech: ["C++", "Python", "OpenCV", "Kalman Filters", "MQTT", "CMake", "GitHub Actions", "Conan"],
+        highlights: [
+            "Optimised multi-camera object detection and association pipelines with Python, C++, OpenCV and Kalman filters, improving object-matching consistency in real-time perception.",
+            "Developed object-tracking and matching algorithms that keep consistent object identities across multiple camera streams.",
+            "Engineered a C++/MQTT vehicle-speed reduction module for perception-to-control communication, reducing braking latency by 30 ms.",
+            "Refactored the C++/OpenCV sensor-fusion pipeline, reducing codebase size by 5% while improving maintainability and execution efficiency.",
+            "Built a modular CI/CD pipeline with GitHub Actions, reusable workflows and Conan, automating build, packaging, caching and artifact publishing to JFrog Artifactory.",
         ],
     },
     {

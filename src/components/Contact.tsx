@@ -22,8 +22,8 @@ const contactLinks = [
     {
         icon: <FaPhoneAlt size={18} />,
         label: "Phone",
-        value: "+49 15737901931",
-        href: "tel:+4915737901931",
+        value: "+49 15511425480",
+        href: "tel:+4915511425480",
         color: "#a855f7",
     },
     {
@@ -43,8 +43,8 @@ const contactLinks = [
     {
         icon: <FaMapMarkerAlt size={20} />,
         label: "Location",
-        value: "Marburg, Hesse, Germany",
-        href: "https://maps.google.com/?q=Marburg,Germany",
+        value: "Giessen, Hesse, Germany",
+        href: "https://maps.google.com/?q=Giessen,Germany",
         color: "#06b6d4",
     },
 ];
